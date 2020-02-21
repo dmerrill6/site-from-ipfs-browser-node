@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
+import useIpfsSite from './hooks/use-ipfs-site';
+import LoadingIpfsSite from './Components/LoadingIpfsSite';
+
 import './App.css';
 
+function createMarkup(site) {
+  return {__html: site};
+}
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const site = useIpfsSite('QmezFjxaWTMZ8BxVD7km3KuyX56Heqt57ATdpourn2G9dQ/index.html');
+
+  return site ? (
+    <div className="App" dangerouslySetInnerHTML={createMarkup(site)} />
+  ): (<LoadingIpfsSite />)
 }
 
 export default App;

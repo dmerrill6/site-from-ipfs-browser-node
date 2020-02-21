@@ -1,0 +1,33 @@
+.LoadingIpfsSite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+.LoadingSiteLogo {
+  max-width: 50%;
+}
+
+.Logo {
+  animation: fadeInFromNone 3s ease-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fadeInFromNone {
+  0% {
+      display: none;
+      opacity: 0.25;
+  }
+
+  50% {
+      display: block;
+      opacity: 1;
+  }
+
+  100% {
+      display: block;
+      opacity: 0.25;
+  }
+}
